@@ -179,7 +179,7 @@ const themes = [
   </div>
 
   <a
-    href="YOUR_GITHUB_REPOSITORY"
+    href="https://github.com/pankaj-2702/DevBridge-Main"
     target="_blank"
     rel="noreferrer"
     className={styles.settingRow}
