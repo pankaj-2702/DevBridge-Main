@@ -1,0 +1,42 @@
+.layout{
+    
+
+    margin-top: 50px;
+    
+    display:grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap:32px;
+
+    align-items:start;
+}
+
+.chatSection{
+    
+    
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border-color);
+
+    border-radius:16px;
+
+    padding:24px;
+
+    min-height:700px;
+}
+
+@media (max-width:900px){
+
+    .layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

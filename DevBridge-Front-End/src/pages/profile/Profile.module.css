@@ -1,0 +1,276 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.pageHeader p {
+  margin-top: 6px;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+
+.hero {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.avatarSection {
+  position: relative;
+}
+
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-primary);
+}
+
+.avatarPlaceholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(108,99,255,.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--accent-primary);
+}
+
+.cameraBtn {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: var(--accent-primary);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.cameraBtn:hover {
+  background: var(--accent-hover);
+}
+
+.heroContent {
+  flex: 1;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nameRow h2 {
+  font-size: 34px;
+}
+
+.topInfo {
+  margin-top: 14px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+
+  color: var(--text-secondary);
+}
+
+/* ===========================
+   Main Grid
+=========================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.leftColumn,
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===========================
+   Card Titles
+=========================== */
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.cardTitle svg {
+  color: var(--accent-primary);
+}
+
+.cardTitle h3 {
+  margin: 0;
+}
+
+/* ===========================
+   Skills
+=========================== */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ===========================
+   Portfolio
+=========================== */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px;
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+
+  transition: .2s;
+}
+
+.linkItem:hover {
+  border-color: var(--accent-primary);
+  background: rgba(108,99,255,.08);
+}
+
+.linkItem svg:first-child {
+  color: var(--accent-primary);
+}
+
+.linkItem div {
+  flex: 1;
+}
+
+.linkItem strong {
+  display: block;
+  color: var(--text-primary);
+}
+
+.linkItem small {
+  color: var(--text-secondary);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===========================
+   Personal Information
+=========================== */
+
+.infoTable {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 20px;
+  column-gap: 24px;
+}
+
+.infoTable div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--text-secondary);
+}
+
+.infoTable svg {
+  color: var(--accent-primary);
+}
+
+.editBtn{
+    width: fit-content;
+    color : #fff
+}
+
+.editBtn a:hover{
+    color : #fff
+}
+.editBtn a:visited{
+    
+    color : #fff
+}
+
+.reviewList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    margin-top:20px;
+}
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:950px) {
+
+  .container{
+        max-width: 428px;
+    }
+
+    
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+}

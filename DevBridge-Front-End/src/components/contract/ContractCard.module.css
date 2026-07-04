@@ -1,0 +1,142 @@
+.topRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:var(--spacing-md);
+    margin-bottom:18px;
+}
+
+.topRow h4{
+    flex:1;
+    font-size:1.4rem;
+    line-height:1.35;
+}
+
+.userName{
+    color:var(--text-secondary);
+    margin-bottom:10px;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--border-color);
+}
+
+.avatarFallback{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:var(--bg-tertiary);
+    border:1px solid var(--border-color);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-secondary);
+}
+
+.user span{
+    font-size:var(--font-size-sm);
+    font-weight:var(--font-medium);
+    color:var(--text-primary);
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:var(--spacing-md);
+    padding-top:var(--spacing-md);
+
+    border-top:1px solid var(--border-color);
+}
+
+.meta{
+    display:flex;
+    align-items:center;
+    gap:24px;
+
+    color:var(--text-secondary);
+    font-size:var(--font-size-sm);
+}
+
+.metaItem{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.seeBtn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    background:var(--accent-primary);
+    color:white;
+
+    border:none;
+    border-radius:10px;
+
+    padding:10px 22px;
+
+    font-size:13px;
+    font-weight:600;
+
+    text-decoration:none;
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.seeBtn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-2px);
+    color: #fff;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-left: 10px;
+}
+
+.viewBtn,
+.chatBtn{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.viewBtn{
+    background:var(--accent-primary);
+    color:white;
+}
+
+.viewBtn:hover{
+    background:var(--accent-hover);
+    color: #fff;
+}
+
+.chatBtn{
+    background:var(--bg-tertiary);
+    color:var(--text-primary);
+    border:1px solid var(--border-color);
+}
+
+.chatBtn:hover{
+    border-color:var(--accent-primary);
+    color:var(--accent-primary);
+}

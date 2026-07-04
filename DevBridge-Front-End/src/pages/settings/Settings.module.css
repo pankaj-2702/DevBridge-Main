@@ -1,0 +1,224 @@
+.settings {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.header h1 {
+    margin-bottom: 8px;
+}
+
+.header p {
+    max-width: 600px;
+}
+
+.section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sectionHeader {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sectionHeader h2 {
+    margin-bottom: 6px;
+}
+
+.themeGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.themeCard{
+    position:relative;
+
+    background:var(--bg-secondary);
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--border-radius-lg);
+
+    padding:24px;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+}
+
+.themeCard:hover{
+
+    border-color:var(--accent-primary);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.themeCard h3{
+
+    margin-top:18px;
+
+    margin-bottom:6px;
+
+}
+
+.themeCard p{
+
+    font-size:13px;
+
+}
+
+.iconWrapper{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--bg-tertiary);
+
+    color:var(--accent-primary);
+
+}
+
+.active{
+
+    border:2px solid var(--accent-primary);
+
+    background:rgba(108,99,255,.08);
+
+}
+
+.check{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--accent-primary);
+
+    color:white;
+
+}
+
+.settingsSection{
+
+    padding:32px 0;
+
+    border-bottom:1px solid var(--border-color);
+
+}
+
+.settingRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    color:inherit;
+
+    transition:.2s;
+
+    margin-top:12px;
+
+}
+
+.settingRow:hover{
+
+    background:var(--bg-tertiary);
+
+}
+
+.settingInfo{
+
+    display:flex;
+
+    gap:16px;
+
+    align-items:flex-start;
+
+}
+
+.settingInfo svg{
+
+    color:var(--accent-primary);
+
+    margin-top:2px;
+
+}
+
+.settingInfo h4{
+
+    margin-bottom:4px;
+
+}
+
+.settingInfo p{
+
+    font-size:13px;
+
+}
+
+.aboutDescription{
+    margin-bottom:28px;
+    line-height:1.8;
+}
+
+.infoRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    padding:18px 0;
+    border-bottom:1px solid var(--border-color);
+}
+
+.infoLabel{
+    color:var(--text-secondary);
+    min-width:140px;
+}
+
+.infoValue{
+    color:var(--text-primary);
+    font-weight:500;
+}
+
+.techStack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:flex-end;
+}

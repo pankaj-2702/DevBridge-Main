@@ -1,0 +1,176 @@
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.pageHeader {
+  margin-bottom: var(--spacing-xl);
+}
+
+.pageHeader h1 {
+  margin-bottom: 8px;
+}
+
+.pageHeader p {
+  color: var(--text-secondary);
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formGroup label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.formGroup label svg {
+  color: var(--accent-primary);
+}
+
+.formGroup small {
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+
+/* ===========================
+   Textarea
+=========================== */
+
+.textarea {
+  width: 100%;
+  min-height: 220px;
+  resize: vertical;
+
+  padding: 16px;
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  transition: .2s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+/* ===========================
+   Tips
+=========================== */
+
+.tipBox {
+  background: rgba(108, 99, 255, .08);
+
+  border: 1px solid rgba(108, 99, 255, .18);
+
+  border-radius: var(--border-radius-md);
+
+  padding: 22px;
+}
+
+.tipTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 16px;
+
+  font-weight: 600;
+
+  color: var(--accent-primary);
+}
+
+.tipTitle svg {
+  flex-shrink: 0;
+}
+
+.tipBox ul {
+  padding-left: 20px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tipBox li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===========================
+   Error
+=========================== */
+
+.error {
+  color: #ef4444;
+  font-size: .95rem;
+  font-weight: 500;
+}
+
+/* ===========================
+   Actions
+=========================== */
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  margin-top: 8px;
+}
+
+.actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+}

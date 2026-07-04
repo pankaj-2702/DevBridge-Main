@@ -1,0 +1,271 @@
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 var(--spacing-lg) var(--spacing-2xl);
+}
+
+.userLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: inherit;
+
+  width: fit-content;
+}
+
+
+/* ---------------- Back ---------------- */
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: transparent;
+  border: none;
+
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+
+  margin-bottom: 36px;
+
+  cursor: pointer;
+  transition: .2s;
+}
+
+.backBtn:hover {
+  color: var(--accent-primary);
+}
+
+/* ---------------- Header ---------------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ---------------- Info Row ---------------- */
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--text-secondary);
+}
+
+.infoItem svg {
+  color: var(--text-secondary);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarFallback {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  background: rgba(108,99,255,.15);
+  color: var(--accent-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+/* ---------------- Tabs ---------------- */
+
+.tabs {
+  margin-bottom: 28px;
+}
+
+.activeTab {
+  background: rgba(108,99,255,.15);
+
+  color:var(--text-primary);
+
+  border: none;
+
+  border-bottom: 2px solid var(--accent-primary);
+
+  border-radius: 12px 12px 0 0;
+
+  padding: 14px 34px;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ---------------- Cards ---------------- */
+
+.container :global(.card) {
+  margin-bottom: 28px;
+}
+
+.container h3 {
+  margin-bottom: 22px;
+  font-size: 28px;
+}
+
+.container p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ---------------- Skills ---------------- */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------------- Details Grid ---------------- */
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 26px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 22px;
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+
+  background: rgba(255,255,255,.02);
+}
+
+.detailItem svg {
+  color: var(--accent-primary);
+
+  width: 26px;
+  height: 26px;
+
+  flex-shrink: 0;
+}
+
+.detailItem small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+}
+
+.detailItem h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ---------------- Bottom Button ---------------- */
+
+.container :global(.btn-primary) {
+  margin-top: 10px;
+
+  height: 56px;
+
+  font-size: 17px;
+
+  border-radius: 14px;
+
+}
+
+.actionButtons{
+    margin-top:30px;
+    display:flex;
+    justify-content: flex-end;
+    gap:16px;
+}
+
+.deleteBtn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:12px 22px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.deleteBtn:hover{
+    background:#b91c1c;
+}
+
+
+.viewProposalBtn{
+    background:#3b82f6;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:12px 22px;
+    font-size:15px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.viewProposalBtn:hover{
+    background:#2563eb;
+}
+/* ---------------- Responsive ---------------- */
+
+@media (max-width:900px){
+
+  .header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .header h1{
+    font-size:36px;
+  }
+
+  .infoRow{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:22px;
+  }
+
+  .detailsGrid{
+    grid-template-columns:1fr;
+  }
+
+}

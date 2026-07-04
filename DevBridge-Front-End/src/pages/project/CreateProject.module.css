@@ -1,0 +1,176 @@
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.pageHeader {
+  margin-bottom: var(--spacing-xl);
+}
+
+.pageHeader h1 {
+  margin-bottom: 8px;
+}
+
+.pageHeader p {
+  color: var(--text-secondary);
+}
+
+/* ===========================
+   Form
+=========================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formGroup label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.formGroup label svg {
+  color: var(--accent-primary);
+}
+
+.formGroup small {
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+
+/* ===========================
+   Textarea
+=========================== */
+
+.textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 180px;
+
+  padding: 14px;
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+
+  background: var(--bg-secondary);
+
+  color: var(--text-primary);
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  transition: .2s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+/* ===========================
+   Skills
+=========================== */
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  background: rgba(108, 99, 255, .12);
+
+  border-radius: 999px;
+
+  color: var(--accent-primary);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.skill button {
+  border: none;
+  background: transparent;
+
+  color: inherit;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  line-height: 1;
+}
+
+.skillInput {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.skillInput input {
+  flex: 1;
+}
+
+/* ===========================
+   Error
+=========================== */
+
+.error {
+  color: #ef4444;
+  font-size: .95rem;
+  font-weight: 500;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+
+  margin-top: 10px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  .skillInput {
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+}
