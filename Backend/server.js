@@ -13,7 +13,7 @@ const connectBD = require('./db/connectDB')
 const cors = require('cors');
 
 app.use(cors({
-    origin: 'http://localhost:5173',  // your frontend URL
+    origin: process.env.CLIENT_URL,  // your frontend URL
     credentials: true,                // allow cookies/auth headers
 }));
 app.use(express.json())
@@ -51,11 +51,12 @@ const ReviewRoute = require('./route/Review')
 app.use('/api/reviews',ReviewRoute)
 
 app.use(errorHandlerMiddleware)
-const port = 3000;
+
+const PORT =process.env.PORT || 3000;
 const start = async ()  =>{
     try{
         await connectBD(process.env.MONGO_URI)
-        app.listen(port,console.log(`Port is listening at ${port}`))
+        app.listen(PORT,console.log(`Port is listening at ${PORT}`))
     }catch(err){
         console.log(err)
     }
