@@ -11,7 +11,8 @@ import {
   BriefcaseBusiness,
   Settings,
   LogOut,
-  FolderKanban
+  FolderKanban,
+ XIcon
 } from "lucide-react";
 
 const navItems = [
@@ -60,7 +61,7 @@ const navItems = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const { user,logout } = useAuth()
   const navigate = useNavigate()
 
@@ -69,55 +70,53 @@ const Sidebar = () => {
     navigate('/login')
   }
   //console.log(user)
-  return (
-    <aside className={styles.sidebar}>
 
-      {/* Logo */}
-      <div className={styles.logo}>
-        <span className={styles.logoIcon}>⬡</span>
-        <span className={styles.logoText}>DevBridge</span>
-      </div>
 
-      {/* Nav Items */}
-      <nav className={styles.nav}>
-  {navItems
-    .filter((item) => item.roles.includes(user?.role))
-    .map((item) => {
-      const Icon = item.icon;
+    return (
+  <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+    <button className={styles.closeBtn} onClick={onClose}><XIcon size={20}/></button>
 
-      return (
-        <NavLink
-          key={item.path}
-          to={item.path}
-          end={item.path === "/projects"}
-          className={({ isActive }) =>
-            isActive
-              ? `${styles.navItem} ${styles.active}`
-              : styles.navItem
-          }
-        >
-          <Icon size={20} className={styles.icon} />
-          <span>{item.label}</span>
-        </NavLink>
-      );
-    })}
-</nav>
+    <div className={styles.logo}>
+      <span className={styles.logoIcon}>⬡</span>
+      <span className={styles.logoText}>DevBridge</span>
+    </div>
 
-      {/* Bottom — Settings + Logout */}
-      <div className={styles.bottom}>
-        <NavLink to="/settings" className={styles.navItem}>
-          <Settings className={styles.icon}/>
-          <span>Settings</span>
-        </NavLink>
+    <nav className={styles.nav}>
+      {navItems
+        .filter((item) => item.roles.includes(user?.role))
+        .map((item) => {
+          const Icon = item.icon
+          return (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              end={item.path === "/projects"}
+              onClick={onClose}
+              className={({ isActive }) =>
+                isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              }
+            >
+              <Icon size={20} className={styles.icon} />
+              <span>{item.label}</span>
+            </NavLink>
+          )
+        })}
+    </nav>
 
-        <button className={styles.logoutBtn} onClick={handleLogout}>
-          <LogOut className={styles.icon}/>
-          <span>Logout</span>
-        </button>
-      </div>
+    <div className={styles.bottom}>
+      <NavLink to="/settings" className={styles.navItem} onClick={onClose}>
+        <Settings className={styles.icon} />
+        <span>Settings</span>
+      </NavLink>
 
-    </aside>
-  )
+      <button className={styles.logoutBtn} onClick={handleLogout}>
+        <LogOut className={styles.icon} />
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+)
+  
 }
 
 export default Sidebar

@@ -19,3 +19,20 @@
   flex: 1;
   padding: var(--spacing-xl);
 }
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .backdrop {
+    display: block;
+  }
+   .main {
+    margin-left: 0;
+  }
+}

@@ -84,7 +84,41 @@
   font-weight: 500;
 }
 
-.error{
-  color : var(--error-color) !important ;
-  
+.error {
+  color: var(--error-color) !important;
+}
+
+/* ---- Mobile responsiveness ---- */
+@media (max-width: 768px) {
+  .authPage {
+    
+    padding: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .authCard {
+    flex-direction: column;
+    min-height: auto;
+    max-width: 100%;
+  }
+
+  .authLeft {
+    display: none; /* hide left panel completely on mobile */
+  }
+
+  .authRight {
+    flex: none;
+    width: 100%;
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 420px) {
+  .authRight {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .authRight h2 {
+    font-size: 20px;
+  }
 }

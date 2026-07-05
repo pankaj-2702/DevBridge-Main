@@ -103,9 +103,28 @@
     color: var(--accent-primary);
 }
 
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 22px;
+  cursor: pointer;
+}
+
 /* Mobile */
 
 @media (max-width: 768px) {
+
+
+    /* Topbar.module.css */
+
+
+@media (max-width: 768px) {
+  .menuBtn {
+    display: block;
+  }
+}
 
     .topbar {
         padding: 0 var(--spacing-md);

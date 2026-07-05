@@ -1,9 +1,10 @@
 import styles from "./Topbar.module.css";
 import useAuth from "../../hooks/useAuth";
-import { Bell, User } from "lucide-react";
+import { Bell, User , MenuIcon,
+  CrossIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const Topbar = () => {
+const Topbar = ({ onMenuClick }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const visitProfile = ()=>{
@@ -17,7 +18,12 @@ const Topbar = () => {
   }
   //console.log(user)
   return (
-    <header className={styles.topbar}>
+
+     <div className={styles.topbar}>
+      <button className={styles.menuBtn} onClick={onMenuClick}>
+        <MenuIcon size={20} />
+      </button>
+      <header className={styles.topbar}>
 
       {/* Left */}
 
@@ -70,6 +76,8 @@ const Topbar = () => {
       </div>
 
     </header>
+    </div>
+    
   );
 };
 
