@@ -19,11 +19,12 @@ const Topbar = ({ onMenuClick }) => {
   //console.log(user)
   return (
 
-     <div className={styles.topbar}>
-      <button className={styles.menuBtn} onClick={onMenuClick}>
+     
+      
+      <header className={styles.topbar}>
+        <button className={styles.menuBtn} onClick={onMenuClick}>
         <MenuIcon size={20} />
       </button>
-      <header className={styles.topbar}>
 
       {/* Left */}
 
@@ -76,7 +77,7 @@ const Topbar = ({ onMenuClick }) => {
       </div>
 
     </header>
-    </div>
+    
     
   );
 };
