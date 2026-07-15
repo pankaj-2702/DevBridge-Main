@@ -67,12 +67,17 @@ const updateProposals = async (req, res)=>{
 
 
 const withdrawProposal = async (req, res)=>{
+
    const {id} = req.params
 
    const proposal = await Proposal.findOneAndDelete({_id : id , developerId : req.user.userId})
      if(!proposal){
                     throw new NotFoundError('No Proposal is found');
-               }                                                 
+               } 
+   const project = await Project.findOneAndUpdate(
+      {_id : proposal.projectId}, 
+      { $inc: { proposalCount: -1 } }
+   )                                                            
              
                  res.status(200).send('Successful DELETE the Porposal') 
 
