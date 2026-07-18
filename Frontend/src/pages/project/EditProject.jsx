@@ -7,9 +7,13 @@ import { FolderPlus, FileText, IndianRupee, Code2 , RocketIcon } from "lucide-re
 
 import {getProjectById , updateProject } from "../../services/projectService";
 
+import useToast from "../../hooks/useToast";
+
 const EditProject = () => {
 
   const navigate = useNavigate();
+
+  const { showToast } = useToast();
 
   const [saving, setSaving] = useState(false);
 
@@ -96,11 +100,11 @@ useEffect(() => {
         ...formData,
         budget: Number(formData.budget)
       });
-
+      showToast("Project updated successfully.", "success");
       navigate("/my-projects");
 
     } catch (err) {
-
+     showToast("Failed to update project.", "error");
       setError(
         err.response?.data?.message ||
         err.response?.data?.msg ||

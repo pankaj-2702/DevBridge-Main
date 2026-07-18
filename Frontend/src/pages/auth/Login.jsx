@@ -4,9 +4,10 @@ import { login as loginAPI } from '../../services/authService';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth"
 import { useNavigate } from "react-router-dom";
-
+import useToast from '../../hooks/useToast';
 const Login = () => {
 
+const {showToast} = useToast();
 
 const {login} = useAuth();
 const navigate = useNavigate();
@@ -39,14 +40,15 @@ const handleSubmit = async (e) =>{
         //console.log("Login Successful");
         //console.log(data);
         login(data);
+        showToast("Welcome back!", "success");
         navigate("/dashboard");
         // Later:
         // navigate("/login");
 
     } catch (err) {
 
-        console.error(err);
-
+        //console.error(err);
+        showToast(error.response?.data?.message || "Login failed", "error");  
         setError(
             err.response?.data?.message ||
             err.response?.data?.msg ||

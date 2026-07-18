@@ -2,6 +2,8 @@ import styles from "./MyProposals.module.css";
 
 import { withdrawProposal, getMyProposals } from "../../services/proposalService";
 import { useEffect, useState } from "react";
+import useToast from "../../hooks/useToast";
+import useModal from "../../hooks/useModal";
 
 import ProposalCard from "../../components/proposal/ProposalCard";
 import UniversalPageSkeleton from "../../components/Skeleton/UniversalPageSkeleton";
@@ -13,6 +15,9 @@ const MyProposals = () => {
   const [loading, setLoading] = useState(true);
 
   const [error, setError] = useState("");
+
+  const { showToast } = useToast();
+  const { showModal } = useModal();
 
   useEffect(() => {
 
@@ -49,21 +54,21 @@ const MyProposals = () => {
   }
 
    const handleWithdraw = async (proposalId) => {
-      const confirmDelete = window.confirm(
-        "Are you sure you want to Withdraw this proposal?"
-      );
-    
-      if (!confirmDelete) return;
-    
-      try {
-        await withdrawProposal(proposalId);
-        //navigate("/proposals");
-        setProposals(prev =>
-      prev.filter(proposal => proposal._id !== proposalId)
-    );
-      } catch (err) {
-        //console.log(err);
-      }
+      showModal({
+        title: "Withdraw Proposal",
+        message: "Are you sure you want to withdraw this proposal? This action cannot be undone.",
+        confirmText: "Withdraw",
+        cancelText: "Cancel",
+        onConfirm: async () => {
+          try {
+            await withdrawProposal(proposalId);
+            setProposals((prev) => prev.filter((p) => p._id !== proposalId));
+            showToast("Proposal withdrawn.", "success");
+          } catch (err) {
+            showToast("Failed to withdraw proposal.", "error");
+          }
+        }
+      });
     };
 
 

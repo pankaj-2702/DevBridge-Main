@@ -6,10 +6,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { IndianRupee, FileText, Lightbulb, Send } from "lucide-react";
 
 import { editProposal , getProposalById } from "../../services/proposalService";
+import useToast from "../../hooks/useToast";
 
 const EditProposal = () => {
 
   const navigate = useNavigate();
+
+  const { showToast } = useToast();
 
   const { id } = useParams();
  //console.log("Id ins submit fun : " +id)
@@ -63,11 +66,11 @@ const EditProposal = () => {
         ...formData,
         bidAmount: Number(formData.bidAmount)
       });
-
+      showToast("Proposal updated successfully.", "success");
       navigate("/proposals");
 
     } catch (err) {
-
+     showToast("Unable to update proposal.", "error");
       setError(
         err.response?.data?.message ||
         err.response?.data?.msg ||

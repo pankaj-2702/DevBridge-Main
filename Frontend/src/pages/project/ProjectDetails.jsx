@@ -6,6 +6,8 @@ import useAuth from "../../hooks/useAuth";
 import UniversalPageSkeleton from "../../components/Skeleton/UniversalPageSkeleton";
 import { getProjectById , deleteProject } from "../../services/projectService";
 
+import useToast from "../../hooks/useToast";
+import useModal from "../../hooks/useModal";
 import {
   ArrowLeft,
   User,
@@ -23,6 +25,10 @@ const ProjectDetails = () => {
   const navigate = useNavigate();
 
   const { id } = useParams();
+
+  const {showToast}=useToast();
+
+  const {showModal} = useModal();
 
   const [project, setProject] = useState(null);
 
@@ -70,18 +76,30 @@ const handleSubmit = () =>{
 };
 
 const handleDelete = async () => {
-  const confirmDelete = window.confirm(
-    "Are you sure you want to delete this project?"
-  );
+ 
 
-  if (!confirmDelete) return;
+  showModal({
 
-  try {
-    await deleteProject(id);
-    navigate("/my-projects");
-  } catch (err) {
-    //console.log(err);
-  }
+    title: "Delete Project",
+
+    message: "This action cannot be undone.",
+
+    confirmText: "Delete",
+
+    cancelText: "Cancel",
+
+    onConfirm: async () => {
+
+
+        await deleteProject(id);
+
+        showToast("Project deleted successfully.");
+
+        navigate("/my-projects");
+
+    }
+
+});
 };
 
 const handleViewProposals = () =>{

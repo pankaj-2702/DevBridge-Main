@@ -7,7 +7,13 @@ import { FolderPlus, FileText, IndianRupee, Code2 , RocketIcon } from "lucide-re
 
 import { createProject } from "../../services/projectService";
 
+import useToast  from '../../hooks/useToast'
+
+
+
 const CreateProject = () => {
+
+  const { showToast } = useToast();
 
   const navigate = useNavigate();
 
@@ -76,10 +82,12 @@ const CreateProject = () => {
         budget: Number(formData.budget)
       });
 
+      showToast("Project created successfully!");
+   
       navigate("/projects");
 
     } catch (err) {
-
+      showToast("Unable to create project.", "error");
       setError(
         err.response?.data?.message ||
         err.response?.data?.msg ||

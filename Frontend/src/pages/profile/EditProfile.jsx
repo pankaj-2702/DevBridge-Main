@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth"
 import UniversalPageSkeleton from "../../components/Skeleton/UniversalPageSkeleton"
 import { getMe, updateMe, uploadPhoto } from "../../services/userService";
-
+import useToast from "../../hooks/useToast";
 
 const EditProfile = () => {
 
   const navigate = useNavigate();
   const {updateUser} = useAuth();
+  const {showToast} = useToast();
   const [loading, setLoading] = useState(true);
   
 const [photo, setPhoto] = useState(null);
@@ -137,16 +138,17 @@ const handleSubmit = async (e) => {
     setSaving(true);
     if(photo){
       await uploadPhoto(photo)
+      showToast("Profile photo updated.", "success");
     }
     await updateMe(formData);
     
     const data = await getMe()
     updateUser(data.data);
-    
+    showToast("Profile updated successfully.", "success");
     navigate("/profile");
 
   } catch (err) {
-
+    showToast("Failed to update profile.", "error");
     setError(
             err.response?.data?.message ||
             err.response?.data?.msg ||

@@ -7,10 +7,11 @@ import { IndianRupee, FileText, Lightbulb, Send } from "lucide-react";
 
 import { submitProposal } from "../../services/proposalService";
 
+import useToast  from "../../hooks/useToast";
 const SubmitProposal = () => {
 
   const navigate = useNavigate();
-
+  const { showToast } = useToast();
   const { id } = useParams();
  //console.log("Id ins submit fun : " +id)
   const [saving, setSaving] = useState(false);
@@ -45,11 +46,11 @@ const SubmitProposal = () => {
         ...formData,
         bidAmount: Number(formData.bidAmount)
       });
-
+      showToast("Proposal submitted successfully.", "success");
       navigate("/proposals");
 
     } catch (err) {
-
+     showToast("Proposal submitted successfully.", "success");
       setError(
         err.response?.data?.message ||
         err.response?.data?.msg ||

@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import  useAuth  from '../../hooks/useAuth'
+import useModal from '../../hooks/useModal'
 import styles from './Sidebar.module.css'
 import {
   House,
@@ -65,9 +66,19 @@ const Sidebar = ({ isOpen, onClose }) => {
   const { user,logout } = useAuth()
   const navigate = useNavigate()
 
+  const { showModal } = useModal();
+
   const handleLogout = async () => {
-    logout()
-    navigate('/login')
+    showModal({
+      title: "Logout",
+      message: "Are you sure you want to logout?",
+      confirmText: "Logout",
+      cancelText: "Cancel",
+      onConfirm: async () => {
+        logout();
+        navigate('/login');
+      }
+    })
   }
   //console.log(user)
 

@@ -3,11 +3,12 @@ import { useState } from "react";
 import { register } from '../../services/authService';
 import { useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
+import useToast from '../../hooks/useToast';
 const Register = () => {
 
 const { login } = useAuth();
     const navigate = useNavigate();
-
+    const {showToast} = useToast();
 const [formData, setFormData] = useState({
   name: "",
   email: "",
@@ -36,14 +37,15 @@ const handleSubmit = async (e) =>{
         //console.log("Registration Successful");
         //console.log(data);
         login(data)
+       showToast("Account created successfully!", "success");
         navigate("/dashboard");
         // Later:
         // navigate("/login");
 
     } catch (err) {
 
-        console.error(err);
-
+        //console.error(err);
+        showToast(error.response?.data?.message || "Registration failed", "error");
         setError(
             err.response?.data?.message ||
             err.response?.data?.msg ||
